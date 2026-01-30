@@ -9,7 +9,9 @@ SpiDriver::SpiDriver(uint8_t mosiPin, uint8_t misoPin, uint8_t sckPin, uint8_t c
 
 void SpiDriver::begin()
 {
-
+    setPin(m_cs, 1);
+    setPin(m_sck, 0);
+    setPin(m_mosi, 0);
 }
 
 void SpiDriver::select()

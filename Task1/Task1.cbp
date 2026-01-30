@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Eeprom25LC040A.cpp" />
+		<Unit filename="Eeprom25LC040A.h" />
 		<Unit filename="SpiDriver.cpp" />
 		<Unit filename="SpiDriver.h" />
 		<Unit filename="main.cpp" />
