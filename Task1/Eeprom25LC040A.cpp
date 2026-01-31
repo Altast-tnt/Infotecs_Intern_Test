@@ -16,7 +16,7 @@ uint8_t Eeprom25LC040A::readStatus()
     return status;
 }
 
-void Eeprom25LC040A::sentCommandAndAddress(uint8_t command, uint16_t address)
+void Eeprom25LC040A::sendCommandAndAddress(uint8_t command, uint16_t address)
 {
     if ((address >> 8) & 1)
     {
@@ -31,7 +31,7 @@ uint8_t Eeprom25LC040A::read(uint16_t address)
 {
     m_driver.select();
 
-    sentCommandAndAddress(CMD_READ, address);
+    sendCommandAndAddress(CMD_READ, address);
 
     uint8_t receivedData = m_driver.transferByte(0x00);
 
@@ -43,7 +43,7 @@ void Eeprom25LC040A::read(uint16_t address, uint8_t* buffer, size_t size)
 {
     m_driver.select();
 
-    sentCommandAndAddress(CMD_READ, address);
+    sendCommandAndAddress(CMD_READ, address);
 
     for (size_t i = 0; i < size; ++i)
     {
@@ -63,7 +63,7 @@ void Eeprom25LC040A::write(uint16_t address, uint8_t data)
 
     // Операция записи
     m_driver.select();
-    sentCommandAndAddress(CMD_WRITE, address);
+    sendCommandAndAddress(CMD_WRITE, address);
     m_driver.transferByte(data);
 
     // Ожидание записи

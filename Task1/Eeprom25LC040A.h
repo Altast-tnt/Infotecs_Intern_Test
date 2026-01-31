@@ -34,7 +34,7 @@ private:
      * @param address Адрес ячейки памяти (от 0 до 511).
      *
      */
-    void sentCommandAndAddress(uint8_t command, uint16_t address);
+    void sendCommandAndAddress(uint8_t command, uint16_t address);
 
     // Чтение регистра статуса (RDSR)
     uint8_t readStatus();
