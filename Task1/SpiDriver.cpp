@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "SpiDriver.h"
 
 SpiDriver::SpiDriver(uint8_t mosiPin, uint8_t misoPin, uint8_t sckPin, uint8_t csPin)
@@ -25,7 +26,8 @@ void SpiDriver::deselect()
 }
 
 void SpiDriver::setPin(uint8_t pin, bool level) {
-    std::cout << "Pin " << (int)pin << " set to " << level << std::endl;
+    // Для проверки корректности установки пинов
+    // std::cout << "Pin " << (int)pin << " set to " << level << std::endl;
 }
 
 bool SpiDriver::readPin(uint8_t pin) {
@@ -34,6 +36,9 @@ bool SpiDriver::readPin(uint8_t pin) {
 
 uint8_t SpiDriver::transferByte(uint8_t byteToSend)
 {
+    // Вывод в HEX формате данные отправки
+    std::cout << "[SPI] Sending: 0x"
+              << std::hex << std::uppercase << (int)byteToSend << std::dec << std::endl;
     uint8_t receivedByte = 0;
 
     for (int i = 7; i >= 0; --i)
